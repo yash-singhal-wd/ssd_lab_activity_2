@@ -2,9 +2,12 @@
 
 mid=$(awk 'END {print NR}' $1)
 
-mid=$((mid/2))
+mid=$(( (mid+1)/2 ))
 
-res=$(awk 'NR==4 {print}' $1)
+echo $mid
+filename=$1
+
+res=$(head -n $mid $filename | tail -1)
 
 echo "$res"
 
